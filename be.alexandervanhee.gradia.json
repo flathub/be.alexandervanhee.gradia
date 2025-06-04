@@ -8,7 +8,8 @@
     "--share=ipc",
     "--socket=fallback-x11",
     "--device=dri",
-    "--socket=wayland"
+    "--socket=wayland",
+    "--filesystem=xdg-pictures/Screenshots"
   ],
   "cleanup": [
     "/include",
@@ -64,7 +65,7 @@
         {
           "type": "git",
           "url": "https://github.com/AlexanderVanhee/Gradia.git",
-          "commit": "7b4dac1bcb5c40a621fda37362c66cdc008afaef"
+          "commit": "e97e931b0e28a61ae33f23299d05db20cd8da10d"
         }
       ]
     }
