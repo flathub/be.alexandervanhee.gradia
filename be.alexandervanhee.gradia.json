@@ -8,7 +8,8 @@
     "--share=ipc",
     "--socket=fallback-x11",
     "--device=dri",
-    "--socket=wayland"
+    "--socket=wayland",
+    "--filesystem=xdg-pictures"
   ],
   "cleanup": [
     "/include",
@@ -22,6 +23,20 @@
     "*.a"
   ],
   "modules": [
+    {
+      "name": "blueprint-compiler",
+      "buildsystem": "meson",
+      "cleanup": [
+        "*"
+      ],
+      "sources": [
+        {
+          "type": "git",
+          "url": "https://gitlab.gnome.org/jwestman/blueprint-compiler",
+          "tag": "v0.16.0"
+        }
+      ]
+    },
     {
       "name": "python3-Pillow",
       "buildsystem": "simple",
@@ -37,24 +52,24 @@
       ]
     },
     {
-	 "name":"libportal",
-	 "buildsystem":"meson",
-	 "config-opts":[
-	    "-Ddocs=false",
-	    "-Dbackend-gtk4=enabled"
-	 ],
-	 "sources":[
-	    {
-	       "type":"archive",
-	       "url":"https://github.com/flatpak/libportal/archive/refs/tags/0.9.1.tar.gz",
-	       "sha256":"ea422b789ae487e04194d387bea031fd7485bf88a18aef8c767f7d1c29496a4e",
-	       "x-checker-data":{
-		  "type":"anitya",
-		  "project-id":230124,
-		  "url-template":"https://github.com/flatpak/libportal/archive/refs/tags/$version.tar.gz"
-	       }
-	    }
-	 ]
+      "name": "libportal",
+      "buildsystem": "meson",
+      "config-opts": [
+        "-Ddocs=false",
+        "-Dbackend-gtk4=enabled"
+      ],
+      "sources": [
+        {
+          "type": "archive",
+          "url": "https://github.com/flatpak/libportal/archive/refs/tags/0.9.1.tar.gz",
+          "sha256": "ea422b789ae487e04194d387bea031fd7485bf88a18aef8c767f7d1c29496a4e",
+          "x-checker-data": {
+            "type": "anitya",
+            "project-id": 230124,
+            "url-template": "https://github.com/flatpak/libportal/archive/refs/tags/$version.tar.gz"
+          }
+        }
+      ]
     },
     {
       "name": "gradia",
@@ -64,7 +79,7 @@
         {
           "type": "git",
           "url": "https://github.com/AlexanderVanhee/Gradia.git",
-          "commit": "7b4dac1bcb5c40a621fda37362c66cdc008afaef"
+          "commit": "e97e931b0e28a61ae33f23299d05db20cd8da10d"
         }
       ]
     }
