@@ -10,8 +10,7 @@
     "--device=dri",
     "--socket=wayland",
     "--filesystem=xdg-pictures",
-    "--share=network",
-    "--own-name=be.alexandervanhee.gradia"
+    "--share=network"
   ],
   "cleanup": [
     "/include",
