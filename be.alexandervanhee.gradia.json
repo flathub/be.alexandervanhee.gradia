@@ -76,11 +76,14 @@
       "name": "gradia",
       "builddir": true,
       "buildsystem": "meson",
+      "config-opts": [
+        "-Dbuildtype=release"
+      ],
       "sources": [
         {
           "type": "git",
           "url": "https://github.com/AlexanderVanhee/Gradia.git",
-          "commit": "dbdc62c861b902f63489aa8d890b6a9f64252bd9"
+          "commit": "e934ed55141ccdd0732b22a2515f4ca184c38768"
         }
       ]
     }
