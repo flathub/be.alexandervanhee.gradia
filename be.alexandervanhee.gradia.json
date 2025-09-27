@@ -12,13 +12,8 @@
     "--filesystem=xdg-pictures",
     "--share=network"
   ],
-  "add-extensions": {
-    "be.alexandervanhee.gradia.Plugin.ocr": {
-      "directory": "extensions/ocr",
-      "subdirectories": true,
-      "no-autodownload": true,
-      "autodelete": true
-    }
+  "build-options": {
+    "strip": true
   },
   "cleanup": [
     "/include",
@@ -30,9 +25,6 @@
     "/share/pkgconfig",
     "*.la",
     "*.a"
-  ],
-  "cleanup-commands": [
-    "mkdir -p ${FLATPAK_DEST}/extensions/ocr"
   ],
   "modules": [
     "pypi-dependencies.json",
@@ -71,6 +63,37 @@
       ]
     },
     {
+      "name": "leptonica",
+      "buildsystem": "autotools",
+      "config-opts": [
+        "--disable-static",
+        "--disable-programs"
+      ],
+      "sources": [
+        {
+          "type": "git",
+          "url": "https://github.com/DanBloomberg/leptonica.git",
+          "tag": "1.86.0"
+        }
+      ]
+    },
+    {
+      "name": "tesseract",
+      "buildsystem": "autotools",
+      "config-opts": [
+        "--disable-static",
+        "--disable-graphics",
+        "--enable-legacy"
+      ],
+      "sources": [
+        {
+          "type": "git",
+          "url": "https://github.com/tesseract-ocr/tesseract.git",
+          "tag": "5.5.1"
+        }
+      ]
+    },
+    {
       "name": "gradia",
       "builddir": true,
       "buildsystem": "meson",
@@ -81,7 +104,7 @@
         {
           "type": "git",
           "url": "https://github.com/AlexanderVanhee/Gradia.git",
-          "commit": "011306a0c7d4a86efb7d084a8fd468dcbb651648"
+          "commit": "23458a3d25ab4389df360fe29cf4f4ebf254b1a7"
         }
       ]
     }
